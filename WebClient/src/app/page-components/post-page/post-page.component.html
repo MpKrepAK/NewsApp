@@ -1,0 +1,32 @@
+<div>
+  <div *ngFor="let data of entities">
+    <ng-container [ngSwitch]="data.type">
+
+      <app-second-level-title-page-element
+        *ngSwitchCase="pageDataType.SecondLevelTitle"
+        [entity]="getSecondLevelTitlePageData(data)">
+      </app-second-level-title-page-element>
+
+      <app-third-level-title-page-element
+        *ngSwitchCase="pageDataType.ThirdLevelTitle"
+        [entity]="getThirdLevelTitlePageData(data)">
+      </app-third-level-title-page-element>
+
+      <app-text-page-element
+        *ngSwitchCase="pageDataType.Text"
+        [entity]="getTextPageData(data)">
+      </app-text-page-element>
+
+      <app-link-page-element
+        *ngSwitchCase="pageDataType.Link"
+        [entity]="getLinkPageData(data)">
+      </app-link-page-element>
+
+      <app-galery-element
+        *ngSwitchCase="pageDataType.Gallery"
+        [entity]="getGalleryPageData(data)">
+      </app-galery-element>
+
+    </ng-container>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+server:
+  port: 8080
+  forward-headers-strategy: framework
+
+spring:
+  application:
+    name: Gateway
+  cloud:
+    gateway:
+      mvc:
+        routes:
+          - id: posts-service-route
+            uri: http://localhost:8081
+            predicates:
+              - Host=localhost
